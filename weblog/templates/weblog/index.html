@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="https://z3.ax1x.com/2021/07/03/R2V1QP.png">
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'weblog/index.css' %}">
+	<title>小破站</title>
+</head>
+<body>
+	<div class="topnav">
+		<a href=""><i class='bx bx-search'></i> 搜索 </a>
+		<a href=""><i class='bx bx-list-ul' ></i> 分类 </a>
+		<a href=""><i class='bx bx-purchase-tag-alt' ></i> 标签 </a>
+		<a href=""><i class='bx bx-archive' ></i> 归档 </a>
+		<a href=""><i class='bx bx-home' ></i> 首页 </a>
+	</div>
+	<div class="leftcolumn">
+		<div class="card" style="height: 110px; text-align: center; padding-top: 35px;">
+		<p style="text-align: center; font-size: 24px; color: #212121; margin-bottom: 30px;">Black_233's blog</p>
+			<p style="font-size: 12px; color: #212121;"><i class='bx bx-notepad'></i> Notes of everything </p>
+		</div>
+		<div class="card" style="text-align: center; padding-top: 20px;">
+			<img src="https://z3.ax1x.com/2021/07/02/R6nBa4.png" alt="头像" style="width: 100px; box-shadow: 0px 0px 5px 4px #cbe2e4;">
+			<p style="font-size: 14px; color: #E1E3E6; margin-top: 10px; margin-bottom: 10px;">Black_233</p>
+			<p style="font-size: 12px; color: #E1E3E6; margin-bottom: 8px;">人与人的相遇，也许是由命运决定的</p>
+			<a href="">关于 </a>
+			<span style="color: #E1E3E6"> | </span>
+			<a href="">归档</a>
+			<span style="color: #E1E3E6"> | </span>
+			<a href=""> 标签</a>
+			<hr style="width: 80%;">
+			<p style="color: coral; margin-top: 12px; margin-bottom: 12px;"><i class='bx bx-rss'></i> RSS </p>
+			<hr style="width: 80%;">
+			<table class="linkme">
+				<tr>
+					<td><a href=""><i class='bx bxl-github' ></i> Github </a></td>
+					<td><a href=""><i class='bx bxl-twitter' ></i> Twitter </a></td>
+				</tr>
+				<tr>
+					<td><a href=""><i class='bx bx-globe' ></i> 豆瓣 </a></td>
+					<td><a href=""><i class='bx bx-brain' ></i> 知乎 </a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="rightcolumn">
+	{% for entry in entrys_list %}
+		<div class="card" style="padding: 15px;">
+			<h3 style="margin-top: 0px; text-align: center; margin-bottom: 10px;">{{entry.own_title}}</h3>
+			<p style="text-align: center; color: #E1E3E6; font-size: 12px; margin-bottom: 10px;"><i class='bx bx-calendar'></i> 发表于{{entry.add_date}} | <i class='bx bx-folder' ></i> 分类于{{entry.own_topic}} </p>
+			{{entry.own_text|safe}}
+		</div>
+	{% endfor %}
+	</div>
+	<div class="footer">
+		<p> © 2018 - {{now_year}} <i class='bx bxs-heart'></i> Black_233 </p>
+		<p> 由Django强力驱动 </p>
+	</div>
+</body>
+</html>
